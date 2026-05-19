@@ -1,0 +1,436 @@
+{
+  "extVersion": "1.30.01",
+  "name": "[Shopee] v9.0 Crawl shopee",
+  "icon": "riGlobalLine",
+  "table": [],
+  "version": "1.30.01",
+  "drawflow": {
+    "edges": [
+      {
+        "data": {},
+        "id": "vueflow__edge-trns5fitrns5fi-output-1-miw47odmiw47od-input-1",
+        "label": "",
+        "markerEnd": "arrowclosed",
+        "selectable": true,
+        "source": "trns5fi",
+        "sourceHandle": "trns5fi-output-1",
+        "sourceX": 180.86061496912794,
+        "sourceY": 788.9070992156792,
+        "target": "miw47od",
+        "targetHandle": "miw47od-input-1",
+        "targetX": 620.9033712665098,
+        "targetY": 788.9532973142608,
+        "type": "custom",
+        "updatable": true
+      },
+      {
+        "data": {},
+        "id": "vueflow__edge-miw47odmiw47od-output-1-awcu84xawcu84x-input-1",
+        "label": "",
+        "markerEnd": "arrowclosed",
+        "selectable": true,
+        "source": "miw47od",
+        "sourceHandle": "miw47od-output-1",
+        "sourceX": 860.9033337064136,
+        "sourceY": 788.9532973142608,
+        "target": "awcu84x",
+        "targetHandle": "awcu84x-input-1",
+        "targetX": 1086.108374893009,
+        "targetY": 784.960117353008,
+        "type": "custom",
+        "updatable": true
+      },
+      {
+        "data": {},
+        "id": "vueflow__edge-awcu84xawcu84x-output-1-cbg13pqcbg13pq-input-1",
+        "label": "",
+        "markerEnd": "arrowclosed",
+        "selectable": true,
+        "source": "awcu84x",
+        "sourceHandle": "awcu84x-output-1",
+        "sourceX": 1326.108337332913,
+        "sourceY": 784.960117353008,
+        "target": "cbg13pq",
+        "targetHandle": "cbg13pq-input-1",
+        "targetX": 74.6506191830434,
+        "targetY": 1199.0812587428513,
+        "type": "custom",
+        "updatable": true
+      },
+      {
+        "data": {},
+        "id": "vueflow__edge-cbg13pqcbg13pq-output-1-hzfjgtshzfjgts-input-1",
+        "label": "",
+        "markerEnd": "arrowclosed",
+        "selectable": true,
+        "source": "cbg13pq",
+        "sourceHandle": "cbg13pq-output-1",
+        "sourceX": 314.65058162294724,
+        "sourceY": 1199.0812587428513,
+        "target": "hzfjgts",
+        "targetHandle": "hzfjgts-input-1",
+        "targetX": 490.44537744005464,
+        "targetY": 1196.8170396763608,
+        "type": "custom",
+        "updatable": true
+      },
+      {
+        "data": {},
+        "id": "vueflow__edge-hzfjgtshzfjgts-output-1-jx18j0hjx18j0h-input-1",
+        "label": "",
+        "markerEnd": "arrowclosed",
+        "selectable": true,
+        "source": "hzfjgts",
+        "sourceHandle": "hzfjgts-output-1",
+        "sourceX": 730.4453398799585,
+        "sourceY": 1196.8170396763608,
+        "target": "jx18j0h",
+        "targetHandle": "jx18j0h-input-1",
+        "targetX": 970.1772428003511,
+        "targetY": 1195.5739185710818,
+        "type": "custom",
+        "updatable": true
+      },
+      {
+        "data": {},
+        "id": "vueflow__edge-70um6u170um6u1-output-1-trns5fitrns5fi-input-1",
+        "label": "",
+        "markerEnd": "arrowclosed",
+        "selectable": true,
+        "source": "70um6u1",
+        "sourceHandle": "70um6u1-output-1",
+        "sourceX": 1576.331637626046,
+        "sourceY": 538.3123744098766,
+        "target": "trns5fi",
+        "targetHandle": "trns5fi-input-1",
+        "targetX": -59.13944137101629,
+        "targetY": 788.9070992156792,
+        "type": "custom",
+        "updatable": true
+      },
+      {
+        "data": {},
+        "id": "vueflow__edge-O6Oj8cLWWHsUFnQ2WtCu9O6Oj8cLWWHsUFnQ2WtCu9-output-1-dxmo774dxmo774-input-1",
+        "label": "",
+        "markerEnd": "arrowclosed",
+        "selectable": true,
+        "source": "O6Oj8cLWWHsUFnQ2WtCu9",
+        "sourceHandle": "O6Oj8cLWWHsUFnQ2WtCu9-output-1",
+        "sourceX": -43.11403867585193,
+        "sourceY": 530.209615753155,
+        "target": "dxmo774",
+        "targetHandle": "dxmo774-input-1",
+        "targetX": 222.92306753305286,
+        "targetY": 548.3077110877404,
+        "type": "custom",
+        "updatable": true
+      },
+      {
+        "data": {},
+        "id": "vueflow__edge-dxmo774dxmo774-output-1-xc5cpyuxc5cpyu-input-1",
+        "label": "",
+        "markerEnd": "arrowclosed",
+        "selectable": true,
+        "source": "dxmo774",
+        "sourceHandle": "dxmo774-output-1",
+        "sourceX": 462.9230769230769,
+        "sourceY": 548.3077110877404,
+        "target": "xc5cpyu",
+        "targetHandle": "xc5cpyu-input-1",
+        "targetX": 728.6923452524038,
+        "targetY": 553.6922795222355,
+        "type": "custom",
+        "updatable": true
+      },
+      {
+        "class": "source-xc5cpyu-output-1 target-70um6u1-input-1",
+        "data": {},
+        "id": "vueflow__edge-xc5cpyuxc5cpyu-output-1-70um6u170um6u1-input-1",
+        "label": "",
+        "markerEnd": "arrowclosed",
+        "selectable": true,
+        "source": "xc5cpyu",
+        "sourceHandle": "xc5cpyu-output-1",
+        "sourceX": 968.6923076923076,
+        "sourceY": 553.6922795222355,
+        "target": "70um6u1",
+        "targetHandle": "70um6u1-input-1",
+        "targetX": 1336.3314873856614,
+        "targetY": 538.3123744098766,
+        "type": "custom",
+        "updatable": true
+      }
+    ],
+    "nodes": [
+      {
+        "data": {
+          "$breakpoint": false,
+          "description": "session",
+          "disableBlock": false,
+          "elementSelector": "",
+          "fromNumber": 1,
+          "loopData": "[]",
+          "loopId": "loop-session",
+          "loopThrough": "variable",
+          "maxLoop": 0,
+          "referenceKey": "",
+          "resumeLastWorkflow": false,
+          "reverseLoop": false,
+          "startIndex": 0,
+          "toNumber": 10,
+          "variableName": "SessionsArray",
+          "waitForSelector": false,
+          "waitSelectorTimeout": 5000
+        },
+        "id": "miw47od",
+        "initialized": false,
+        "label": "loop-data",
+        "position": { "x": 644.9033337064136, "y": 750.9532973142608 },
+        "type": "BlockBasic"
+      },
+      {
+        "data": {
+          "clearLoop": false,
+          "disableBlock": false,
+          "loopId": "loop-session"
+        },
+        "id": "hzfjgts",
+        "initialized": false,
+        "label": "loop-breakpoint",
+        "position": { "x": 514.4453398799585, "y": 1121.223327236457 },
+        "type": "BlockLoopBreakpoint"
+      },
+      {
+        "data": { "$breakpoint": false, "disableBlock": false, "time": "1000" },
+        "id": "trns5fi",
+        "initialized": false,
+        "label": "delay",
+        "position": { "x": -35.13938503087206, "y": 730.3134149458475 },
+        "type": "BlockDelay"
+      },
+      {
+        "data": {
+          "activeInInput": false,
+          "contextMenuName": "",
+          "contextTypes": [],
+          "date": "",
+          "days": [],
+          "delay": 5,
+          "description": "",
+          "disableBlock": false,
+          "interval": 60,
+          "isUrlRegex": false,
+          "observeElement": {
+            "baseElOptions": {
+              "attributeFilter": [],
+              "attributes": false,
+              "characterData": false,
+              "childList": true,
+              "subtree": false
+            },
+            "baseSelector": "",
+            "matchPattern": "",
+            "selector": "",
+            "targetOptions": {
+              "attributeFilter": [],
+              "attributes": false,
+              "characterData": false,
+              "childList": true,
+              "subtree": false
+            }
+          },
+          "parameters": [],
+          "preferParamsInTab": false,
+          "settings": { "blockTimeout": 0, "debugMode": false },
+          "shortcut": "",
+          "time": "00:00",
+          "triggers": [
+            {
+              "data": {
+                "activeInInput": false,
+                "contextMenuName": "",
+                "contextTypes": [],
+                "date": "",
+                "days": [],
+                "delay": 5,
+                "description": "",
+                "disableBlock": false,
+                "interval": 60,
+                "isUrlRegex": false,
+                "observeElement": {
+                  "baseElOptions": {
+                    "attributeFilter": [],
+                    "attributes": false,
+                    "characterData": false,
+                    "childList": true,
+                    "subtree": false
+                  },
+                  "baseSelector": "",
+                  "matchPattern": "",
+                  "selector": "",
+                  "targetOptions": {
+                    "attributeFilter": [],
+                    "attributes": false,
+                    "characterData": false,
+                    "childList": true,
+                    "subtree": false
+                  }
+                },
+                "parameters": [],
+                "preferParamsInTab": false,
+                "shortcut": "",
+                "time": "00:00",
+                "type": "manual",
+                "url": ""
+              },
+              "id": "0-YVK",
+              "type": "manual"
+            },
+            {
+              "data": { "expression": "*/10  * * * *" },
+              "id": "E3jgY",
+              "type": "cron-job"
+            }
+          ],
+          "type": "manual",
+          "url": ""
+        },
+        "id": "O6Oj8cLWWHsUFnQ2WtCu9",
+        "initialized": false,
+        "label": "trigger",
+        "position": { "x": -259.11403867585193, "y": 494.2096439232272 },
+        "type": "BlockBasic"
+      },
+      {
+        "data": {
+          "$breakpoint": false,
+          "code": "(async function () {\n  const promotionId = automaRefData(\n    \"loopData\",\n    \"loop-session.data.promotionid\",\n  );\n\n  if (!promotionId) {\n    console.log(\">> No promotionId\");\n    automaNextBlock();\n    return;\n  }\n\n  console.log(\"=================================\");\n  console.log(\">> START SESSION:\", promotionId);\n\n  // ===== 1. GET ITEM IDS =====\n  let itemIds = [];\n\n  try {\n    const res = await fetch(\n      `https://shopee.vn/api/v4/flash_sale/get_all_itemids?promotionid=${promotionId}&need_personalize=true&sort_soldout=true`,\n      { credentials: \"include\" },\n    );\n\n    const json = await res.json();\n    itemIds = (json?.data?.item_brief_list || []).map((i) => i.itemid);\n\n    console.log(`>> Got ${itemIds.length} itemIds`);\n  } catch (err) {\n    console.error(\">> ERROR get_all_itemids:\", err);\n    automaNextBlock();\n    return;\n  }\n\n  if (!itemIds.length) {\n    console.log(\">> No items\");\n    automaNextBlock();\n    return;\n  }\n\n  // ===== 2. GET ITEM DETAIL =====\n  const FETCH_BATCH = 16;\n  const allItems = [];\n  const randomDelay = (min, max) =>\n    Math.floor(Math.random() * (max - min + 1)) + min;\n\n  for (let i = 0; i < itemIds.length; i += FETCH_BATCH) {\n    automaResetTimeout();\n    const batch = itemIds.slice(i, i + FETCH_BATCH);\n\n    try {\n      const res = await fetch(\n        \"https://shopee.vn/api/v4/flash_sale/flash_sale_batch_get_items\",\n        {\n          method: \"POST\",\n          credentials: \"include\",\n          headers: { \"Content-Type\": \"application/json\" },\n          body: JSON.stringify({\n            promotionid: promotionId,\n            itemids: batch,\n            categoryid: 0,\n            limit: batch.length,\n            with_dp_items: true,\n          }),\n        },\n      );\n\n      const json = await res.json();\n\n      // Check captcha error\n      if (json.error === 90309999) {\n        console.error(\">> CAPTCHA ERROR detected\");\n\n        try {\n          await fetch(\"https://n8n.piggi.me/webhook/sent-tele-error\", {\n            method: \"POST\",\n            headers: { \"Content-Type\": \"application/json\" },\n            body: JSON.stringify({\n              message: `🚨 *CAPTCHA DETECTED*\n\nWorkflow bị chặn bởi captcha\n\n⚠️ Vui lòng giải captcha để tiếp tục\n🕐 ${new Date().toLocaleString(\"vi-VN\")}`,\n            }),\n          });\n          console.log(\">> Captcha notification sent\");\n        } catch (err) {\n          console.error(\">> Failed to send captcha notification:\", err);\n        }\n\n        // Stop processing\n        automaNextBlock();\n        return;\n      }\n\n      const items = json?.data?.items || [];\n\n      allItems.push(...items);\n\n      console.log(`>> Batch ${i / FETCH_BATCH + 1}: ${items.length}`);\n\n      await new Promise((r) => setTimeout(r, randomDelay(500, 1500)));\n    } catch (err) {\n      console.error(\">> ERROR batch:\", err);\n    }\n  }\n\n  console.log(`>> Collected ${allItems.length} items`);\n\n  if (!allItems.length) {\n    automaNextBlock();\n    return;\n  }\n\n  // ===== 3. TRANSFORM =====\n  const removeVietnameseTones = (str = \"\") =>\n    str\n      .normalize(\"NFD\")\n      .replace(/[̀-ͯ]/g, \"\")\n      .replace(/đ/g, \"d\")\n      .replace(/Đ/g, \"D\");\n\n  // Helper: Escape SQL string để tránh break syntax khi inject vào n8n template\n  // Escape order: backslash FIRST, then single quote\n  const escapeSQLString = (str) => {\n    if (!str) return \"\";\n    return str\n      .replace(/\\\\/g, \"\\\\\\\\\") // \\ → \\\\ (MUST escape backslash first!)\n      .replace(/'/g, \"''\"); // ' → '' (MySQL standard escape)\n  };\n\n  // --- DATA 1: DB insert ---\n  const dbItems = allItems.map((item) => ({\n    promotionId: item.promotionid,\n    productName: escapeSQLString(item.name || \"\"),\n    productNameNormalized: escapeSQLString(removeVietnameseTones(item.name)),\n    ratingStar: item.item_rating?.rating_star,\n    price: item.price_before_discount,\n    priceFlashsale: item.price || null,\n    hiddenPriceDisplay: item.hidden_price_display || null,\n    discountPercent: item.raw_discount,\n    flashSaleStock: item.flash_sale_stock,\n    stock: item.stock,\n    shopId: item.shopid,\n    itemId: item.itemid,\n    imageUrl: item.image,\n    productCatId: item.flash_catid,\n    startTime: item.start_time,\n    endTime: item.end_time,\n    metadata: escapeSQLString(JSON.stringify(item)), // Escape metadata JSON\n  }));\n\n  // --- DATA 2: product feed ---\n  const productItems = allItems\n    .map((e) => ({\n      link: `https://shopee.vn/product/${e.shopid}/${e.itemid}`,\n      image: e.image,\n      product_name: e.name,\n      shopId: e.shopid,\n      itemId: e.itemid,\n      source: \"flash_sale\",\n      price: (e.price_before_discount || 0) / 100000,\n    }))\n    .filter((e) => e.price >= 50000);\n\n  console.log(`>> DB items: ${dbItems.length}`);\n  console.log(`>> Product feed: ${productItems.length}`);\n\n  // ===== 4. SEND DB (insert-to-shopee) =====\n  const SEND_BATCH = 500;\n\n  for (let i = 0; i < dbItems.length; i += SEND_BATCH) {\n    automaResetTimeout();\n    const batch = dbItems.slice(i, i + SEND_BATCH);\n    const batchNumber = Math.floor(i / SEND_BATCH) + 1;\n\n    try {\n      console.log(`>> Sending DB batch ${batchNumber}`);\n\n      const res = await fetch(\n        \"https://n8n.piggi.me/webhook/insert-to-shopee-v2\",\n        {\n          method: \"POST\",\n          headers: { \"Content-Type\": \"application/json\" },\n          body: JSON.stringify(batch),\n        },\n      );\n\n      if (!res.ok) {\n        console.error(`>> DB batch ${batchNumber} failed: ${res.status}`);\n      }\n    } catch (err) {\n      console.error(`>> DB batch ${batchNumber} error:`, err);\n    }\n  }\n\n  // ===== 5. SEND PRODUCT FEED =====\n  if (productItems.length) {\n    try {\n      console.log(\">> Sending product feed\");\n\n      const res = await fetch(\n        \"https://n8n.piggi.me/webhook/lab_shopee_products_v2\",\n        {\n          method: \"POST\",\n          headers: { \"Content-Type\": \"application/json\" },\n          body: JSON.stringify(productItems),\n        },\n      );\n\n      if (!res.ok) {\n        console.error(`>> Product feed failed: ${res.status}`);\n      }\n    } catch (err) {\n      console.error(\">> Product feed error:\", err);\n    }\n  }\n\n  window.sessionStats = window.sessionStats || [];\n\n  window.sessionStats.push({\n    promotionId,\n    totalItems: allItems.length,\n    productFeed: productItems.length,\n  });\n\n  console.log(\">> DONE SESSION:\", promotionId);\n\n  // automaNextBlock();\n\n  automaNextBlock({ title: \"Delay\" }, { nextBlockId: \"cbg13pq\" });\n})();\n",
+          "context": "website",
+          "description": "",
+          "disableBlock": false,
+          "everyNewTab": false,
+          "preloadScripts": [],
+          "runBeforeLoad": false,
+          "timeout": 20000
+        },
+        "id": "awcu84x",
+        "initialized": false,
+        "label": "javascript-code",
+        "position": { "x": 1110.108337332913, "y": 748.9600985729599 },
+        "type": "BlockBasic"
+      },
+      {
+        "data": {
+          "$breakpoint": true,
+          "disableBlock": false,
+          "settings": { "blockTimeout": 0, "debugMode": false },
+          "time": "10000"
+        },
+        "id": "cbg13pq",
+        "initialized": false,
+        "label": "delay",
+        "position": { "x": 98.65058162294724, "y": 1140.4875275228994 },
+        "type": "BlockDelay"
+      },
+      {
+        "data": {
+          "activeTab": true,
+          "allWindows": false,
+          "closeType": "tab",
+          "description": "",
+          "disableBlock": false,
+          "url": ""
+        },
+        "id": "ga0pa17",
+        "initialized": false,
+        "label": "close-tab",
+        "position": { "x": 1598.3050849627386, "y": 1155.090921672799 },
+        "type": "BlockBasic"
+      },
+      {
+        "data": {
+          "$breakpoint": false,
+          "code": "(async function () {\n  console.log(\">> Fetching Shopee sessions...\");\n\n  try {\n    const res = await fetch(\n      \"https://shopee.vn/api/v4/flash_sale/get_all_sessions?tracker_info_version=1\",\n      {\n        method: \"GET\",\n        credentials: \"include\",\n        headers: {\n          accept: \"*/*\",\n          \"x-api-source\": \"pc\",\n          \"x-requested-with\": \"XMLHttpRequest\",\n          \"x-shopee-language\": \"vi\",\n        },\n      },\n    );\n\n    const json = await res.json();\n\n    // Check captcha error\n    if (json.error === 90309999) {\n      console.error(\">> CAPTCHA ERROR detected\");\n\n      try {\n        await fetch(\"https://n8n.piggi.me/webhook/sent-tele-error\", {\n          method: \"POST\",\n          headers: { \"Content-Type\": \"application/json\" },\n          body: JSON.stringify({\n            message: `🚨 *CAPTCHA DETECTED*\n\nWorkflow bị chặn bởi captcha\n\n⚠️ Vui lòng giải captcha để tiếp tục\n🕐 ${new Date().toLocaleString(\"vi-VN\")}`,\n          }),\n        });\n        console.log(\">> Captcha notification sent\");\n      } catch (err) {\n        console.error(\">> Failed to send captcha notification:\", err);\n      }\n\n      automaSetVariable(\"SessionsArray\", []);\n      automaSetVariable(\"hasData\", 0);\n      automaNextBlock();\n      return;\n    }\n\n    const sessions = json?.data?.sessions || [];\n\n    const allSessions = sessions.map((s) => ({\n      promotionid: s.promotionid,\n      start_time: s.start_time,\n      end_time: s.end_time,\n    }));\n\n    console.log(`>> Total sessions found: ${allSessions.length}`);\n\n    // Đẩy dữ liệu vào Automa\n    automaSetVariable(\"SessionsArray\", allSessions);\n    automaSetVariable(\"hasData\", allSessions.length);\n  } catch (err) {\n    console.error(\">> ERROR fetch sessions:\", err);\n    automaSetVariable(\"SessionsArray\", []);\n    automaSetVariable(\"hasData\", 0);\n  }\n\n  window.sessionStats = [];\n\n  automaNextBlock();\n})();\n",
+          "context": "website",
+          "description": "",
+          "disableBlock": false,
+          "everyNewTab": false,
+          "preloadScripts": [],
+          "runBeforeLoad": false,
+          "timeout": 1000
+        },
+        "id": "70um6u1",
+        "initialized": false,
+        "label": "javascript-code",
+        "position": { "x": 1360.331637626046, "y": 502.3123556298285 },
+        "type": "BlockBasic"
+      },
+      {
+        "data": {
+          "code": "let msg = \"🔥 SHOPEE SUMMARY\\n\\n\";\n\nwindow.sessionStats.forEach(s => {\n  msg += `🛍 ${s.promotionId}\\n`;\n  msg += `Items: ${s.totalItems}\\n`;\n  msg += `Feed: ${s.productFeed}\\n\\n`;\n});\n\nalert(msg);\nautomaNextBlock()",
+          "context": "website",
+          "description": "",
+          "disableBlock": false,
+          "everyNewTab": false,
+          "preloadScripts": [],
+          "runBeforeLoad": false,
+          "timeout": 20000
+        },
+        "id": "jx18j0h",
+        "initialized": false,
+        "label": "javascript-code",
+        "position": { "x": 994.1773930407358, "y": 1159.5739936912742 },
+        "type": "BlockBasic"
+      },
+      {
+        "data": {
+          "activeTab": true,
+          "createIfNoMatch": true,
+          "description": "",
+          "disableBlock": false,
+          "findTabBy": "match-patterns",
+          "matchPattern": "https://shopee.vn/flash_sale",
+          "tabIndex": 0,
+          "tabTitle": "",
+          "url": "https://shopee.vn/flash_sale"
+        },
+        "id": "dxmo774",
+        "initialized": false,
+        "label": "switch-tab",
+        "position": { "x": 246.9230769230769, "y": 512.3076923076923 },
+        "type": "BlockBasic"
+      },
+      {
+        "data": { "disableBlock": false },
+        "id": "xc5cpyu",
+        "initialized": false,
+        "label": "reload-tab",
+        "position": { "x": 752.6923076923076, "y": 517.6923076923076 },
+        "type": "BlockBasic"
+      }
+    ],
+    "position": [201.5, -216],
+    "viewport": { "x": 201.5, "y": -216, "zoom": 1.3 },
+    "zoom": 1.3
+  },
+  "settings": {
+    "aipowerToken": "",
+    "blockDelay": 0,
+    "debugMode": false,
+    "defaultColumnName": "column",
+    "execContext": "popup",
+    "executedBlockOnWeb": true,
+    "inputAutocomplete": true,
+    "insertDefaultColumn": false,
+    "notification": true,
+    "onError": "stop-workflow",
+    "publicId": "",
+    "restartTimes": 3,
+    "reuseLastState": false,
+    "saveLog": true,
+    "tabLoadTimeout": 30000
+  },
+  "globalData": "{\n\t\"key\": \"value\"\n}",
+  "description": "",
+  "includedWorkflows": {}
+}
