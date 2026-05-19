@@ -43,43 +43,47 @@ def generate_folder_name(prompt: str, sdk: str = None, session_id: str = None) -
         sdk: The SDK to use ("opencode", "claude", "copilot", or "cursor"). If None, checks config.
         session_id: Optional OpenCode session ID to reuse. Only used when sdk="opencode".
     """
-    from rich.console import Console
-    from rich.status import Status
-
-    # Get SDK from config if not provided
-    if sdk is None:
-        try:
-            from .config import ConfigManager
-
-            config_manager = ConfigManager(get_config_path())
-            sdk = config_manager.get("sdk", "claude")
-        except Exception:
-            sdk = "claude"
-
-    try:
-        # Check if event loop is already running (e.g., called from async context)
-        try:
-            loop = asyncio.get_running_loop()
-        except RuntimeError:
-            loop = None
-
-        if loop is not None:
-            # Already in async context, use fallback to avoid nested asyncio.run
-            return _slugify(prompt)
-
-        if sdk == "cursor":
-            return _slugify(prompt)
-
-        console = Console()
-        with Status(" [dim]generating folder name...[/dim]", console=console, spinner="dots", spinner_style="dim"):
-            if sdk == "opencode":
-                return asyncio.run(_generate_folder_name_opencode_async(prompt, session_id))
-            return asyncio.run(_generate_folder_name_async(prompt))
-    except Exception:
-        pass
-
-    # Fallback: simple slugify
+    # TEMP FIX: Skip LLM call, use fallback directly
+    # TODO: Debug why Claude Agent SDK hangs
     return _slugify(prompt)
+
+    # from rich.console import Console
+    # from rich.status import Status
+
+    # # Get SDK from config if not provided
+    # if sdk is None:
+    #     try:
+    #         from .config import ConfigManager
+
+    #         config_manager = ConfigManager(get_config_path())
+    #         sdk = config_manager.get("sdk", "claude")
+    #     except Exception:
+    #         sdk = "claude"
+
+    # try:
+    #     # Check if event loop is already running (e.g., called from async context)
+    #     try:
+    #         loop = asyncio.get_running_loop()
+    #     except RuntimeError:
+    #         loop = None
+
+    #     if loop is not None:
+    #         # Already in async context, use fallback to avoid nested asyncio.run
+    #         return _slugify(prompt)
+
+    #     if sdk == "cursor":
+    #         return _slugify(prompt)
+
+    #     console = Console()
+    #     with Status(" [dim]generating folder name...[/dim]", console=console, spinner="dots", spinner_style="dim"):
+    #         if sdk == "opencode":
+    #             return asyncio.run(_generate_folder_name_opencode_async(prompt, session_id))
+    #         return asyncio.run(_generate_folder_name_async(prompt))
+    # except Exception:
+    #     pass
+
+    # # Fallback: simple slugify
+    # return _slugify(prompt)
 
 
 async def _generate_folder_name_async(prompt: str) -> str:

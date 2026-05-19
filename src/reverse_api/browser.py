@@ -165,12 +165,22 @@ console.log('Stealth mode activated');
 # Default Chrome profile path on macOS
 CHROME_USER_DATA_DIR = Path.home() / "Library/Application Support/Google/Chrome"
 
+# Persistent profile storage for reverse-api sessions
+PERSISTENT_PROFILE_DIR = Path.home() / ".reverse-api" / "profiles"
+
 
 def get_chrome_profile_dir() -> Path | None:
     """Get Chrome user data directory if it exists."""
     if CHROME_USER_DATA_DIR.exists():
         return CHROME_USER_DATA_DIR
     return None
+
+
+def get_persistent_profile_dir(profile_name: str = "default") -> Path:
+    """Get or create persistent profile directory for storing cookies/session."""
+    profile_dir = PERSISTENT_PROFILE_DIR / profile_name
+    profile_dir.mkdir(parents=True, exist_ok=True)
+    return profile_dir
 
 
 class ManualBrowser:
@@ -187,11 +197,13 @@ class ManualBrowser:
         prompt: str,
         output_dir: str | None = None,
         use_real_chrome: bool = True,  # New option to use real Chrome
+        profile_name: str = "default",  # Profile name for persistent storage
     ):
         self.run_id = run_id
         self.prompt = prompt
         self.output_dir = output_dir
         self.use_real_chrome = use_real_chrome
+        self.profile_name = profile_name
 
         self.har_dir = get_har_dir(run_id, output_dir)
         self.har_path = self.har_dir / "recording.har"
@@ -227,69 +239,69 @@ class ManualBrowser:
         page.add_init_script(STEALTH_JS)
 
     def _start_with_real_chrome(self, start_url: str | None = None) -> Path:
-        """Start using the real Chrome browser with user's profile."""
-        import shutil
-        import tempfile
-
+        """Start using the real Chrome browser with persistent profile."""
         chrome_profile = get_chrome_profile_dir()
         if not chrome_profile:
             console.print(" [yellow]chrome profile not found, falling back to stealth mode[/yellow]")
             return self._start_with_stealth_chromium(start_url)
 
-        # Create a temporary profile directory
-        temp_profile_dir = Path(tempfile.mkdtemp(prefix="chrome_profile_"))
+        # Use persistent profile directory (keeps cookies/session between runs)
+        persistent_profile_dir = get_persistent_profile_dir(self.profile_name)
 
-        console.print(" [dim]using real chrome (profile copy)[/dim]")
+        console.print(f" [dim]using real chrome (profile: {self.profile_name})[/dim]")
         console.print(" [yellow]⚠️  please browse in the FIRST tab only[/yellow]")
         console.print(" [yellow]    (new tabs may not be recorded)[/yellow]")
+        console.print(f" [dim]cookies/session saved to: {persistent_profile_dir}[/dim]")
         console.print()
 
+        # Use launch_persistent_context with channel="chrome" to use real Chrome binary
+        self._context = self._playwright.chromium.launch_persistent_context(
+            user_data_dir=str(persistent_profile_dir),
+            channel="chrome",  # Use real Chrome binary
+            headless=False,
+            record_har_path=str(self.har_path),
+            record_har_content="embed",
+            no_viewport=True,
+            args=[
+                "--start-maximized",
+                "--disable-blink-features=AutomationControlled",
+            ],
+            ignore_default_args=["--enable-automation", "--no-sandbox"],
+        )
+        self._using_persistent = True
+
+        for existing_page in self._context.pages:
+            try:
+                existing_page.close()
+            except Exception:
+                pass
+
+        # For HAR recording & context
+        page = self._context.new_page()
+
+        if start_url:
+            page.goto(start_url, wait_until="domcontentloaded")
+        else:
+            page.goto("https://www.google.com", wait_until="domcontentloaded")
+
+        # Wait for browser to close (with timeout to prevent hang)
         try:
-            # Use launch_persistent_context with channel="chrome" to use real Chrome binary
-            self._context = self._playwright.chromium.launch_persistent_context(
-                user_data_dir=str(temp_profile_dir),
-                channel="chrome",  # Use real Chrome binary
-                headless=False,
-                record_har_path=str(self.har_path),
-                record_har_content="embed",
-                no_viewport=True,
-                args=[
-                    "--start-maximized",
-                    "--disable-blink-features=AutomationControlled",
-                ],
-                ignore_default_args=["--enable-automation", "--no-sandbox"],
-            )
-            self._using_persistent = True
+            import time
+            start_time = time.time()
+            max_wait = 300  # 5 minutes max
 
-            for existing_page in self._context.pages:
+            while self._context.pages:
+                if time.time() - start_time > max_wait:
+                    console.print(" [yellow]warning: browser wait timeout, force closing[/yellow]")
+                    break
                 try:
-                    existing_page.close()
-                except Exception:
-                    pass
-
-            # For HAR recording & context
-            page = self._context.new_page()
-
-            if start_url:
-                page.goto(start_url, wait_until="domcontentloaded")
-            else:
-                page.goto("https://www.google.com", wait_until="domcontentloaded")
-
-            # Wait for browser to close
-            try:
-                while self._context.pages:
                     self._context.pages[0].wait_for_timeout(100)
-            except Exception:
-                pass
+                except Exception:
+                    break
+        except Exception:
+            pass
 
-            return self.close()
-
-        finally:
-            # Clean up temp profile
-            try:
-                shutil.rmtree(temp_profile_dir, ignore_errors=True)
-            except Exception:
-                pass
+        return self.close()
 
     def _start_with_stealth_chromium(self, start_url: str | None = None) -> Path:
         """Start using Playwright's Chromium with stealth patches."""
@@ -368,10 +380,20 @@ class ManualBrowser:
             # For HAR recording & context
             page.goto("about:blank")
 
-        # Wait for browser to close
+        # Wait for browser to close (with timeout to prevent hang)
         try:
+            import time
+            start_time = time.time()
+            max_wait = 300  # 5 minutes max
+
             while self._context.pages:
-                self._context.pages[0].wait_for_timeout(100)
+                if time.time() - start_time > max_wait:
+                    console.print(" [yellow]warning: browser wait timeout, force closing[/yellow]")
+                    break
+                try:
+                    self._context.pages[0].wait_for_timeout(100)
+                except Exception:
+                    break
         except Exception:
             pass
 

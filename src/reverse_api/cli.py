@@ -1391,7 +1391,8 @@ def handle_messages(run_id: str, mode_color=THEME_PRIMARY):
     default=None,
 )
 @click.option("--output-dir", "-o", default=None, help="Custom output directory.")
-def manual(prompt, url, reverse_engineer, model, output_dir):
+@click.option("--profile", default="default", help="Browser profile name for persistent cookies/session.")
+def manual(prompt, url, reverse_engineer, model, output_dir, profile):
     """Start a manual browser session.
 
     \b
@@ -1404,7 +1405,7 @@ def manual(prompt, url, reverse_engineer, model, output_dir):
     instead, which runs an autonomous AI-driven capture without needing
     a human or an X server.
     """
-    run_manual_capture(prompt, url, reverse_engineer, model, output_dir)
+    run_manual_capture(prompt, url, reverse_engineer, model, output_dir, profile_name=profile)
 
 
 @main.command(
@@ -1543,7 +1544,7 @@ def agent(prompt, url, model, output_dir, no_interactive, as_json, headless, dry
     sys.exit(0 if payload["status"] == "ok" else 1)
 
 
-def run_manual_capture(prompt=None, url=None, reverse_engineer=True, model=None, output_dir=None):
+def run_manual_capture(prompt=None, url=None, reverse_engineer=True, model=None, output_dir=None, profile_name="default"):
     """Shared logic for manual capture."""
     output_dir = output_dir or config_manager.get("output_dir")
 
@@ -1577,7 +1578,7 @@ def run_manual_capture(prompt=None, url=None, reverse_engineer=True, model=None,
         paths={"har_dir": str(get_har_dir(run_id, output_dir))},
     )
 
-    browser = ManualBrowser(run_id=run_id, prompt=prompt, output_dir=output_dir)
+    browser = ManualBrowser(run_id=run_id, prompt=prompt, output_dir=output_dir, profile_name=profile_name)
     har_path = browser.start(start_url=url)
 
     if reverse_engineer:
