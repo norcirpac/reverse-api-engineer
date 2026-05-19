@@ -1,11 +1,16 @@
 {
   "mcpServers": {
-    "playwright-test": {
+    "chrome-devtools": {
       "command": "npx",
       "args": [
-        "playwright",
-        "run-test-mcp-server"
+        "chrome-devtools-mcp@latest",
+        "--autoConnect",
+        "--channel=stable"
       ]
+    },
+    "playwright-test": {
+      "command": "npx",
+      "args": ["playwright", "run-test-mcp-server"]
     }
   }
 }
